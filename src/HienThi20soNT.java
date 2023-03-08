@@ -3,26 +3,24 @@ import java.util.Scanner;
 public class HienThi20soNT {
     public static void main(String[] args) {
         int count = 0;
-        int number = 2;
+        int num = 2;
 
         while (count < 20) {
-            if (isPrime(number)) {
-                System.out.print(number + " ");
+            boolean isPrime = true;
+
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                System.out.print(num + " ");
                 count++;
             }
-            number++;
-        }
-    }
 
-    public static boolean isPrime(int number) {
-        if (number <= 1) {
-            return false;
+            num++;
         }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
 }
 }
